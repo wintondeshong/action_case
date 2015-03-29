@@ -24,10 +24,10 @@ describe ActionCase::Base do
   end
 
   class TestListenerWithGenericHandlers
-    def method_that_succeeds_success response
+    def test_use_case_success response
     end
 
-    def method_that_fails_error response
+    def test_use_case_error response
     end
   end
 
@@ -70,12 +70,12 @@ describe ActionCase::Base do
         end
 
         it "invokes success properly" do
-          expect(listener).to receive(:method_that_succeeds_success).with("some-successful-value")
+          expect(listener).to receive(:test_use_case_success).with("some-successful-value")
           use_case.method_that_succeeds
         end
 
         it "invokes error properly" do
-          expect(listener).to receive(:method_that_fails_error).with("some-error-message")
+          expect(listener).to receive(:test_use_case_error).with("some-error-message")
           use_case.method_that_fails
         end
       end
