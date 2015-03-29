@@ -27,18 +27,6 @@ module ActionCase
       "#{method_name}_#{is_success ? "success" : "error"}"
     end
 
-    def get_options_value(options, attr_sym)
-      lower_camelized_attr = attr_sym.to_s.camelize(:lower).to_sym
-
-      if options[attr_sym]
-        options[attr_sym]
-      elsif options[lower_camelized_attr]
-        options[lower_camelized_attr]
-      else
-        nil
-      end
-    end
-
     def respond(response, is_success = true)
       return response if @listener.nil?
 
