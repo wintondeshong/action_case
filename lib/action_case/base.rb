@@ -22,11 +22,11 @@ module ActionCase
       self.class.name.underscore.split("/").last # accounts for namespaces
     end
 
-    def get_explicit_handler(method_name, is_success: true)
+    def get_explicit_handler(method_name, is_success = true)
       "#{get_class_name}_#{method_name}_#{is_success ? "success" : "error"}"
     end
 
-    def get_generic_handler(is_success: true)
+    def get_generic_handler(is_success = true)
       "#{get_class_name}_#{is_success ? "success" : "error"}"
     end
 
@@ -34,8 +34,8 @@ module ActionCase
       return response if @listener.nil?
 
       caller_name           = caller_locations(1,1)[0].label
-      generic_handler_name  = get_generic_handler(is_success: is_success)
-      explicit_handler_name = get_explicit_handler(caller_name, is_success: is_success)
+      generic_handler_name  = get_generic_handler(is_success)
+      explicit_handler_name = get_explicit_handler(caller_name, is_success)
 
       if @listener.respond_to?(explicit_handler_name)
         @listener.send explicit_handler_name, response
