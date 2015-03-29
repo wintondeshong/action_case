@@ -4,6 +4,8 @@ Implementation of use-case driven design for ruby projects. Keep your business l
 
 Supports: Ruby 1.9.3 +
 
+[![Build Status](https://travis-ci.org/wintondeshong/action_case.svg?branch=master)](https://travis-ci.org/wintondeshong/action_case)
+
 ## Installation
 
 Add this line to your application's Gemfile:
