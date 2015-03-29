@@ -2,6 +2,8 @@
 
 Implementation of use-case driven design for ruby projects. Keep your business logic in the right place!
 
+Supports: Ruby 1.9.3 +
+
 ## Installation
 
 Add this line to your application's Gemfile:

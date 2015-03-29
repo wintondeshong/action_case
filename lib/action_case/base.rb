@@ -33,7 +33,7 @@ module ActionCase
     def respond(response, is_success = true)
       return response if @listener.nil?
 
-      caller_name           = caller_locations(1,1)[0].label
+      caller_name           = defined?(caller_locations) ? caller_locations(1,1)[0].label : caller[0][/`([^']*)'/, 1] # we use the ruby 2.0+ approach whenever possible being it is significantly faster
       generic_handler_name  = get_generic_handler(is_success)
       explicit_handler_name = get_explicit_handler(caller_name, is_success)
 
